@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>wyvern - UI Library</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/xml.min.js"></script>
+    <style type="text/tailwindcss">
+      @import 'tailwindcss';
+
+      @theme {
+        --color-bg: #181819;
+        --color-text-primary: #efefef;
+        --color-text-secondary: #737373;
+        --color-text-muted: #525252;
+        --color-border: #262626;
+        --color-surface-primary: #efefef;
+        --color-surface-inverse: #181819;
+        --color-success: #22c55e;
+        --color-warning: #eab308;
+        --color-error: #ef4444;
+      }
+    </style>
+    <style>
+      /* Custom styles for code blocks */
+      .code-block {
+        position: relative;
+      }
+      .copy-button {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+      .code-block:hover .copy-button {
+        opacity: 1;
+      }
+      /* Override highlight.js theme for better integration */
+      .hljs {
+        background: transparent !important;
+        padding: 16px !important;
+        margin: 0 !important;
+        font-family:
+          'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas,
+          'Courier New', monospace !important;
+        font-size: 13px !important;
+        line-height: 1.8 !important;
+        border-left: 1px solid #262626 !important;
+        border-radius: 0 !important;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-bg text-text-primary font-sans antialiased leading-[1.7] text-[15px]"
+  >
+    <div class="max-w-[720px] mx-auto px-6 pt-[60px] pb-[120px]">
+      <header class="mb-20">
+        <h1 class="text-[28px] font-normal mb-2 text-text-primary">wyvern</h1>
+        <p class="text-text-secondary text-[15px] leading-[1.7] font-light">
+          A minimal component library with a focus on simplicity and clarity.
+        </p>
+        <nav class="mt-8">
+          <a
+            href="#button"
+            class="text-text-secondary underline text-sm mr-5 hover:text-text-primary"
+            >Button</a
+          >
+          <a
+            href="#input"
+            class="text-text-secondary underline text-sm mr-5 hover:text-text-primary"
+            >Input</a
+          >
+          <a
+            href="#badge"
+            class="text-text-secondary underline text-sm mr-5 hover:text-text-primary"
+            >Badge</a
+          >
+          <a
+            href="#card"
+            class="text-text-secondary underline text-sm mr-5 hover:text-text-primary"
+            >Card</a
+          >
+          <a
+            href="#alert"
+            class="text-text-secondary underline text-sm mr-5 hover:text-text-primary"
+            >Alert</a
+          >
+        </nav>
+      </header>
+
+      <section id="button" class="mb-20">
+        <h2 class="text-xl font-normal mb-2 text-text-primary">Button</h2>
+        <p class="text-text-secondary text-sm mb-10 font-light">
+          Triggers actions and events.
+        </p>
+
+        <div
+          class="bg-transparent border border-border p-8 mb-3 flex items-center gap-3 flex-wrap"
+        >
+          <button
+            class="px-3 py-1.5 bg-surface-primary text-surface-inverse border border-surface-primary text-sm font-normal cursor-pointer transition-all hover:bg-text-primary hover:border-text-primary"
+          >
+            Default
+          </button>
+          <button
+            class="px-3 py-1.5 bg-transparent text-text-primary border border-border text-sm font-normal cursor-pointer transition-all hover:border-text-primary"
+          >
+            Outline
+          </button>
+          <button
+            class="px-3 py-1.5 bg-transparent text-text-secondary border-0 text-sm font-normal cursor-pointer transition-all hover:text-text-primary"
+          >
+            Ghost
+          </button>
+        </div>
+        <div class="code-block bg-transparent mb-12 relative">
+          <button
+            class="copy-button px-2 py-1 bg-text-secondary text-surface-inverse text-xs rounded transition-colors hover:bg-text-primary cursor-pointer"
+          >
+            Copy
+          </button>
+          <pre><code class="language-html">&lt;button class="px-3 py-1.5 bg-surface-primary text-surface-inverse border border-surface-primary text-sm font-normal cursor-pointer transition-all hover:bg-text-primary hover:border-text-primary"&gt;Default&lt;/button&gt;
+&lt;button class="px-3 py-1.5 bg-transparent text-text-primary border border-border text-sm font-normal cursor-pointer transition-all hover:border-text-primary"&gt;Outline&lt;/button&gt;
+&lt;button class="px-3 py-1.5 bg-transparent text-text-secondary border-0 text-sm font-normal cursor-pointer transition-all hover:text-text-primary"&gt;Ghost&lt;/button&gt;</code></pre>
+        </div>
+
+        <h3 class="text-base text-text-secondary mb-4 mt-10 font-normal">
+          Sizes
+        </h3>
+        <div
+          class="bg-transparent border border-border p-8 mb-3 flex items-center gap-3 flex-wrap"
+        >
+          <button
+            class="px-2.5 py-1 bg-surface-primary text-surface-inverse border border-surface-primary text-[13px] font-normal cursor-pointer transition-all hover:bg-text-primary hover:border-text-primary"
+          >
+            Small
+          </button>
+          <button
+            class="px-3 py-1.5 bg-surface-primary text-surface-inverse border border-surface-primary text-sm font-normal cursor-pointer transition-all hover:bg-text-primary hover:border-text-primary"
+          >
+            Default
+          </button>
+          <button
+            class="px-[18px] py-2.5 bg-surface-primary text-surface-inverse border border-surface-primary text-[15px] font-normal cursor-pointer transition-all hover:bg-text-primary hover:border-text-primary"
+          >
+            Large
+          </button>
+        </div>
+        <div class="code-block bg-transparent mb-12 relative">
+          <button
+            class="copy-button px-2 py-1 bg-text-secondary text-surface-inverse text-xs rounded transition-colors hover:bg-text-primary cursor-pointer"
+          >
+            Copy
+          </button>
+          <pre><code class="language-html">&lt;button class="px-2.5 py-1 bg-surface-primary text-surface-inverse border border-surface-primary text-[13px] font-normal cursor-pointer transition-all hover:bg-text-primary hover:border-text-primary"&gt;Small&lt;/button&gt;
+&lt;button class="px-3 py-1.5 bg-surface-primary text-surface-inverse border border-surface-primary text-sm font-normal cursor-pointer transition-all hover:bg-text-primary hover:border-text-primary"&gt;Default&lt;/button&gt;
+&lt;button class="px-[18px] py-2.5 bg-surface-primary text-surface-inverse border border-surface-primary text-[15px] font-normal cursor-pointer transition-all hover:bg-text-primary hover:border-text-primary"&gt;Large&lt;/button&gt;</code></pre>
+        </div>
+      </section>
+
+      <section id="input" class="mb-20">
+        <h2 class="text-xl font-normal mb-2 text-text-primary">Input</h2>
+        <p class="text-text-secondary text-sm mb-10 font-light">
+          Accepts user text input.
+        </p>
+
+        <div
+          class="bg-transparent border border-border p-8 mb-3 flex items-center gap-3 flex-wrap"
+        >
+          <input
+            type="text"
+            class="bg-transparent border border-border text-text-primary px-2.5 py-1.5 text-sm w-[280px] transition-colors focus:outline-none focus:border-text-primary placeholder:text-text-muted"
+            placeholder="Enter text..."
+          />
+        </div>
+        <div class="code-block bg-transparent mb-12 relative">
+          <button
+            class="copy-button px-2 py-1 bg-text-secondary text-surface-inverse text-xs rounded transition-colors hover:bg-text-primary cursor-pointer"
+          >
+            Copy
+          </button>
+          <pre><code class="language-html">&lt;input type="text" class="bg-transparent border border-border text-text-primary px-2.5 py-1.5 text-sm w-[280px] transition-colors focus:outline-none focus:border-text-primary placeholder:text-text-muted" placeholder="Enter text..."&gt;</code></pre>
+        </div>
+
+        <h3 class="text-base text-text-secondary mb-4 mt-10 font-normal">
+          Types
+        </h3>
+        <div
+          class="bg-transparent border border-border p-8 mb-3 flex flex-col gap-3"
+        >
+          <input
+            type="text"
+            class="bg-transparent border border-border text-text-primary px-2.5 py-1.5 text-sm w-[280px] transition-colors focus:outline-none focus:border-text-primary placeholder:text-text-muted"
+            placeholder="Text input"
+          />
+          <input
+            type="email"
+            class="bg-transparent border border-border text-text-primary px-2.5 py-1.5 text-sm w-[280px] transition-colors focus:outline-none focus:border-text-primary placeholder:text-text-muted"
+            placeholder="email@example.com"
+          />
+          <input
+            type="password"
+            class="bg-transparent border border-border text-text-primary px-2.5 py-1.5 text-sm w-[280px] transition-colors focus:outline-none focus:border-text-primary placeholder:text-text-muted"
+            placeholder="Password"
+          />
+        </div>
+        <div class="code-block bg-transparent mb-12 relative">
+          <button
+            class="copy-button px-2 py-1 bg-text-secondary text-surface-inverse text-xs rounded transition-colors hover:bg-text-primary cursor-pointer"
+          >
+            Copy
+          </button>
+          <pre><code class="language-html">&lt;input type="text" class="bg-transparent border border-border text-text-primary px-2.5 py-1.5 text-sm w-[280px] transition-colors focus:outline-none focus:border-text-primary placeholder:text-text-muted" placeholder="Text input"&gt;
+&lt;input type="email" class="bg-transparent border border-border text-text-primary px-2.5 py-1.5 text-sm w-[280px] transition-colors focus:outline-none focus:border-text-primary placeholder:text-text-muted" placeholder="email@example.com"&gt;
+&lt;input type="password" class="bg-transparent border border-border text-text-primary px-2.5 py-1.5 text-sm w-[280px] transition-colors focus:outline-none focus:border-text-primary placeholder:text-text-muted" placeholder="Password"&gt;</code></pre>
+        </div>
+      </section>
+
+      <section id="badge" class="mb-20">
+        <h2 class="text-xl font-normal mb-2 text-text-primary">Badge</h2>
+        <p class="text-text-secondary text-sm mb-10 font-light">
+          Displays status or category labels.
+        </p>
+
+        <div
+          class="bg-transparent border border-border p-8 mb-3 flex items-center gap-3 flex-wrap"
+        >
+          <span
+            class="inline-flex items-center px-1.5 py-0.5 text-xs font-normal border border-border text-text-secondary"
+            >Default</span
+          >
+          <span
+            class="inline-flex items-center px-1.5 py-0.5 text-xs font-normal border border-success text-success"
+            >Success</span
+          >
+          <span
+            class="inline-flex items-center px-1.5 py-0.5 text-xs font-normal border border-warning text-warning"
+            >Warning</span
+          >
+          <span
+            class="inline-flex items-center px-1.5 py-0.5 text-xs font-normal border border-error text-error"
+            >Error</span
+          >
+        </div>
+        <div class="code-block bg-transparent mb-12 relative">
+          <button
+            class="copy-button px-2 py-1 bg-text-secondary text-surface-inverse text-xs rounded transition-colors hover:bg-text-primary cursor-pointer"
+          >
+            Copy
+          </button>
+          <pre><code class="language-html">&lt;span class="inline-flex items-center px-1.5 py-0.5 text-xs font-normal border border-border text-text-secondary"&gt;Default&lt;/span&gt;
+&lt;span class="inline-flex items-center px-1.5 py-0.5 text-xs font-normal border border-success text-success"&gt;Success&lt;/span&gt;
+&lt;span class="inline-flex items-center px-1.5 py-0.5 text-xs font-normal border border-warning text-warning"&gt;Warning&lt;/span&gt;
+&lt;span class="inline-flex items-center px-1.5 py-0.5 text-xs font-normal border border-error text-error"&gt;Error&lt;/span&gt;</code></pre>
+        </div>
+      </section>
+
+      <section id="card" class="mb-20">
+        <h2 class="text-xl font-normal mb-2 text-text-primary">Card</h2>
+        <p class="text-text-secondary text-sm mb-10 font-light">
+          Container for related information.
+        </p>
+
+        <div
+          class="bg-transparent border border-border p-8 mb-3 flex items-center gap-3 flex-wrap"
+        >
+          <div class="bg-transparent border border-border p-5 w-80">
+            <div class="text-base font-normal mb-2 text-text-primary">
+              Card Title
+            </div>
+            <div class="text-sm text-text-secondary mb-4 leading-[1.6]">
+              This is a description of the card content. It provides context and
+              additional information.
+            </div>
+            <button
+              class="px-2.5 py-1 bg-surface-primary text-surface-inverse border border-surface-primary text-[13px] font-normal cursor-pointer transition-all hover:bg-text-primary hover:border-text-primary"
+            >
+              Action
+            </button>
+          </div>
+        </div>
+        <div class="code-block bg-transparent mb-12 relative">
+          <button
+            class="copy-button px-2 py-1 bg-text-secondary text-surface-inverse text-xs rounded transition-colors hover:bg-text-primary cursor-pointer"
+          >
+            Copy
+          </button>
+          <pre><code class="language-html">&lt;div class="bg-transparent border border-border p-5 w-80"&gt;
+  &lt;div class="text-base font-normal mb-2 text-text-primary"&gt;Card Title&lt;/div&gt;
+  &lt;div class="text-sm text-text-secondary mb-4 leading-[1.6]"&gt;Description text...&lt;/div&gt;
+  &lt;button class="px-2.5 py-1 bg-surface-primary text-surface-inverse border border-surface-primary text-[13px] font-normal cursor-pointer transition-all hover:bg-text-primary hover:border-text-primary"&gt;Action&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <section id="alert" class="mb-20">
+        <h2 class="text-xl font-normal mb-2 text-text-primary">Alert</h2>
+        <p class="text-text-secondary text-sm mb-10 font-light">
+          Displays important messages or notifications.
+        </p>
+
+        <div
+          class="bg-transparent border border-border p-8 mb-3 flex items-center gap-3 flex-wrap"
+        >
+          <div
+            class="bg-transparent border border-border p-4 w-full max-w-[500px]"
+          >
+            <div class="text-sm font-normal mb-1.5 text-text-primary">
+              Information
+            </div>
+            <div class="text-sm text-text-secondary leading-[1.6]">
+              This is an informational message to provide context or updates to
+              the user.
+            </div>
+          </div>
+        </div>
+        <div class="code-block bg-transparent mb-12 relative">
+          <button
+            class="copy-button px-2 py-1 bg-text-secondary text-surface-inverse text-xs rounded transition-colors hover:bg-text-primary cursor-pointer"
+          >
+            Copy
+          </button>
+          <pre><code class="language-html">&lt;div class="bg-transparent border border-border p-4 w-full max-w-[500px]"&gt;
+  &lt;div class="text-sm font-normal mb-1.5 text-text-primary"&gt;Information&lt;/div&gt;
+  &lt;div class="text-sm text-text-secondary leading-[1.6]"&gt;Message text...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </section>
+
+      <footer
+        class="mt-[100px] pt-10 border-t border-border text-text-muted text-[13px]"
+      >
+        <p>
+          <a
+            href="https://github.com"
+            target="_blank"
+            class="text-text-secondary underline hover:text-text-primary"
+            >GitHub</a
+          >
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      // Initialize highlight.js
+      hljs.highlightAll();
+
+      // Add copy functionality
+      document.addEventListener('DOMContentLoaded', function () {
+        const copyButtons = document.querySelectorAll('.copy-button');
+
+        copyButtons.forEach((button) => {
+          button.addEventListener('click', function () {
+            const codeBlock = this.parentElement.querySelector('code');
+            const textToCopy = codeBlock.textContent;
+
+            navigator.clipboard
+              .writeText(textToCopy)
+              .then(() => {
+                // Visual feedback
+                const originalText = this.textContent;
+                this.textContent = 'Copied!';
+                this.classList.add('bg-success');
+
+                setTimeout(() => {
+                  this.textContent = originalText;
+                  this.classList.remove('bg-success');
+                }, 2000);
+              })
+              .catch((err) => {
+                console.error('Failed to copy text: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+
+                const originalText = this.textContent;
+                this.textContent = 'Copied!';
+                setTimeout(() => {
+                  this.textContent = originalText;
+                }, 2000);
+              });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
