@@ -1,41 +1,41 @@
-# Agent Guidelines for Reaper Design System
+# Agent Guidelines for Wyvern Design System
 
-This guide provides coding agents with essential information for working on the Reaper Design System - a minimal, theme-first Tailwind CSS v4 component library.
+This guide provides coding agents with essential information for working on Wyvern - a minimal, copy-paste Tailwind CSS v4 component library.
 
 ## Quick Reference
 
 ### Project Overview
-- **Type**: Tailwind CSS v4 Design System Reference Library
-- **Purpose**: Copy-paste component library (not a published package)
-- **Package Manager**: PNPM v10.19.0+
-- **Build System**: Config-less Tailwind CSS v4 with semantic CSS variables
+- **Name**: Wyvern (not Reaper)
+- **Type**: Tailwind CSS v4 Copy-Paste Component Reference
+- **Purpose**: Single-file component showcase for direct HTML/CSS copying
+- **Package Manager**: PNPM 10.19.0+ (strictly enforced)
+- **Build System**: None - config-less Tailwind CSS v4 via CDN
 
-## Build & Development Commands
+### Key Files
+- **Primary**: `docs/index.html` - All components live here
+- **Config**: `package.json` - Minimal setup with only preview script
+- **Docs**: `README.md` - User-facing documentation
 
-### Core Commands
+## Commands & Scripts
+
+### Available Commands
 ```bash
-# Install dependencies
+# Install dependencies (only serve package)
 pnpm install
 
-# Start development server (serves docs/)
+# Start development server
 pnpm preview
+# → Serves docs/ at http://localhost:3000
 
-# Build CSS (when implemented)
-pnpm build:css
-
-# Run all checks
-pnpm install && pnpm preview
+# Check package list
+pnpm list
 ```
 
-### Testing
-- **No testing framework is currently configured**
-- Manual testing via `pnpm preview` and visual inspection
-- Components are tested by viewing `docs/index.html` at http://localhost:3000
-
-### Linting & Formatting
-- **No ESLint or Prettier configured** - project uses minimal tooling approach
-- Follow existing code patterns in `docs/index.html` for consistency
-- HTML formatting should be clean and readable
+### No Build/Test/Lint Commands
+- **No build step**: Components use CDN Tailwind CSS v4
+- **No testing framework**: Manual testing via preview server
+- **No linting/formatting**: Follow existing patterns in docs/index.html
+- **No compilation**: Direct HTML with Tailwind utilities
 
 ## Code Style Guidelines
 
@@ -175,9 +175,13 @@ open http://localhost:3000
 ## Dependencies & Tools
 
 ### Core Dependencies
-- `@tailwindcss/cli@^4.1.18` - Tailwind CSS v4 CLI
-- `tailwind@^4.0.0` - Core Tailwind CSS
-- `serve@^14.2.5` - Static file serving (dev dependency)
+- `serve@^14.2.5` - Static file serving for development preview
+- **No build dependencies** - Uses CDN-based Tailwind CSS v4 via `@tailwindcss/browser@4`
+- **Package manager**: PNPM 10.19.0+ (enforced via `packageManager` field)
+
+### CDN Resources (used in docs/index.html)
+- Tailwind CSS v4: `https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4`
+- Highlight.js: `https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/`
 
 ### Development Workflow
 1. Edit `docs/index.html` for new components
@@ -219,3 +223,25 @@ Before committing changes:
 - **Live Preview**: `pnpm preview` → http://localhost:3000
 - **Tailwind CSS v4 Docs**: https://tailwindcss.com/docs
 - **Package Manager**: PNPM (required)
+
+---
+
+## Additional Guidelines
+
+### Git Workflow
+- Make descriptive commit messages focused on component changes
+- Test all changes with `pnpm preview` before committing
+- Keep commits focused on single component or theme changes
+- Update documentation when adding new components
+
+### Performance Considerations
+- Keep CSS variables minimal - only add what's needed
+- Use semantic naming to avoid variable proliferation
+- Test components across different screen sizes
+- Ensure accessibility with proper semantic HTML
+
+### Common Patterns
+- Button variants: default, outline, ghost, destructive
+- Input states: default, focus, error, disabled
+- Spacing scale: `px-2.5 py-1`, `px-3 py-1.5`, `px-[18px] py-2.5`
+- Text hierarchy: `text-sm`, `text-base`, `text-lg`, `text-xl`
